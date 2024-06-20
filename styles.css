@@ -159,6 +159,13 @@ body {
   transition: background-color var(--ease-in-out);
 }
 
+.square.clicked {
+  background-image: url(Player-X-Icon.png);
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 .square:hover {
   background-color: var(--medium-purple-hover);
 }
