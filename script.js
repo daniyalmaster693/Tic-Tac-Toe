@@ -16,7 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
       return { board };
     }
 
-    return { getBoard };
+    function setBoard(squareIndex, value) {
+      board[squareIndex] = value;
+    }
+
+    return { getBoard, setBoard };
   })();
 
   const player1 = {
@@ -27,6 +31,13 @@ document.addEventListener("DOMContentLoaded", () => {
     marker: "o",
   };
 
+  function displayPlayerMarker(index) {
+    gameSquare[index].classList.add("clicked");
+    console.log(index);
+  }
+
+  function currentTurn(player) {}
+
   function showGameBoard() {
     gameBoard.classList.add("visible");
     startMenu.style.display = "none";
@@ -34,17 +45,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function showModal() {
     modal.classList.add("visible");
-    modalOverlay.classList.remove("hidden");
+    modalOverlay.classList.add("visible");
   }
 
   function hideModal() {
     modal.classList.remove("visible");
-    modalOverlay.classList.add("hidden");
+    modalOverlay.classList.remove("visible");
   }
 
   playGame.addEventListener("click", showGameBoard);
-  gameSquare.forEach((square) => {
-    square.addEventListener("click", () => {});
+  gameSquare.forEach((square, index) => {
+    square.addEventListener("click", () => {
+      displayPlayerMarker(index);
+    });
   });
+
+  restartGame.addEventListener("click", showModal);
   playAgain.addEventListener("click", hideModal);
 });
