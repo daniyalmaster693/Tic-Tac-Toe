@@ -34,10 +34,13 @@ document.addEventListener("DOMContentLoaded", () => {
       modal.classList.remove("visible");
       modalOverlay.classList.remove("visible");
 
-      gameSquare.forEach((square) => {
-        square.classList.remove("clicked");
-      });
       board = ["", "", "", "", "", "", "", "", ""];
+      gameSquare.forEach((square) => {
+        square.classList.remove("player-x");
+      });
+      gameSquare.forEach((square) => {
+        square.classList.remove("player-o");
+      });
     }
 
     return { getBoard, setBoard, showGameBoard, showModal, resetGame };
