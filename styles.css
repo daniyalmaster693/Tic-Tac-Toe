@@ -159,8 +159,15 @@ body {
   transition: background-color var(--ease-in-out);
 }
 
-.square.clicked {
+.square.player-x {
   background-image: url(Player-X-Icon.png);
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.square.player-o {
+  background-image: url(Player-O-Icon.png);
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;

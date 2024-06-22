@@ -52,11 +52,9 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   function displayPlayerMarker(index) {
-    gameSquare[index].classList.add("clicked");
+    gameSquare[index].classList.add("player-x");
     console.log(index);
   }
-
-  function currentTurn(player) {}
 
   playGame.addEventListener("click", gameDisplayBoard.showGameBoard);
   gameSquare.forEach((square, index) => {
