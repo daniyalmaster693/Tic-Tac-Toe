@@ -20,7 +20,27 @@ document.addEventListener("DOMContentLoaded", () => {
       board[squareIndex] = value;
     }
 
-    return { getBoard, setBoard };
+    function showGameBoard() {
+      gameBoard.classList.add("visible");
+      startMenu.style.display = "none";
+    }
+
+    function showModal() {
+      modal.classList.add("visible");
+      modalOverlay.classList.add("visible");
+    }
+
+    function resetGame() {
+      modal.classList.remove("visible");
+      modalOverlay.classList.remove("visible");
+
+      gameSquare.forEach((square) => {
+        square.classList.remove("clicked");
+      });
+      board = ["", "", "", "", "", "", "", "", ""];
+    }
+
+    return { getBoard, setBoard, showGameBoard, showModal, resetGame };
   })();
 
   const player1 = {
@@ -38,28 +58,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function currentTurn(player) {}
 
-  function showGameBoard() {
-    gameBoard.classList.add("visible");
-    startMenu.style.display = "none";
-  }
-
-  function showModal() {
-    modal.classList.add("visible");
-    modalOverlay.classList.add("visible");
-  }
-
-  function hideModal() {
-    modal.classList.remove("visible");
-    modalOverlay.classList.remove("visible");
-  }
-
-  playGame.addEventListener("click", showGameBoard);
+  playGame.addEventListener("click", gameDisplayBoard.showGameBoard);
   gameSquare.forEach((square, index) => {
     square.addEventListener("click", () => {
       displayPlayerMarker(index);
     });
   });
 
-  restartGame.addEventListener("click", showModal);
-  playAgain.addEventListener("click", hideModal);
+  restartGame.addEventListener("click", gameDisplayBoard.showModal);
+  playAgain.addEventListener("click", gameDisplayBoard.resetGame);
 });
