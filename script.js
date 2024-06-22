@@ -54,7 +54,9 @@ document.addEventListener("DOMContentLoaded", () => {
       modal.classList.remove("visible");
       modalOverlay.classList.remove("visible");
 
+      currentPlayer = player1;
       board = ["", "", "", "", "", "", "", "", ""];
+
       gameSquare.forEach((square) => {
         square.classList.remove("player-x");
       });
