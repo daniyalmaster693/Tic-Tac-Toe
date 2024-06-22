@@ -55,8 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   function displayPlayerMarker(index) {
-    gameSquare[index].classList.add("player-x");
-    console.log(index);
+    gameSquare[index].classList.add("player-o");
   }
 
   playGame.addEventListener("click", gameDisplayBoard.showGameBoard);
