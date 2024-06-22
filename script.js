@@ -33,10 +33,10 @@ document.addEventListener("DOMContentLoaded", () => {
     function displayPlayerMarker(index) {
       if (currentPlayer === player1) {
         currentPlayer = player2;
-        gameSquare[index].classList.add("player-o");
+        gameSquare[index].classList.add("player-x");
       } else {
         currentPlayer = player1;
-        gameSquare[index].classList.add("player-x");
+        gameSquare[index].classList.add("player-o");
       }
     }
 
