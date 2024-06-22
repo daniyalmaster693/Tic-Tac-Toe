@@ -20,6 +20,26 @@ document.addEventListener("DOMContentLoaded", () => {
       board[squareIndex] = value;
     }
 
+    const player1 = {
+      marker: "x",
+    };
+
+    const player2 = {
+      marker: "o",
+    };
+
+    let currentPlayer = player1;
+
+    function displayPlayerMarker(index) {
+      if (currentPlayer === player1) {
+        currentPlayer = player2;
+        gameSquare[index].classList.add("player-o");
+      } else {
+        currentPlayer = player1;
+        gameSquare[index].classList.add("player-x");
+      }
+    }
+
     function showGameBoard() {
       gameBoard.classList.add("visible");
       startMenu.style.display = "none";
@@ -43,25 +63,20 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
-    return { getBoard, setBoard, showGameBoard, showModal, resetGame };
+    return {
+      getBoard,
+      setBoard,
+      displayPlayerMarker,
+      showGameBoard,
+      showModal,
+      resetGame,
+    };
   })();
-
-  const player1 = {
-    marker: "x",
-  };
-
-  const player2 = {
-    marker: "o",
-  };
-
-  function displayPlayerMarker(index) {
-    gameSquare[index].classList.add("player-o");
-  }
 
   playGame.addEventListener("click", gameDisplayBoard.showGameBoard);
   gameSquare.forEach((square, index) => {
     square.addEventListener("click", () => {
-      displayPlayerMarker(index);
+      gameDisplayBoard.displayPlayerMarker(index);
     });
   });
 
