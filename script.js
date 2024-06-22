@@ -31,12 +31,18 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentPlayer = player1;
 
     function displayPlayerMarker(index) {
-      if (currentPlayer === player1) {
-        currentPlayer = player2;
-        gameSquare[index].classList.add("player-x");
+      if (board[index] === "x" || board[index] === "o") {
+        return;
       } else {
-        currentPlayer = player1;
-        gameSquare[index].classList.add("player-o");
+        if (currentPlayer === player1) {
+          board[index] = "x";
+          currentPlayer = player2;
+          gameSquare[index].classList.add("player-x");
+        } else {
+          board[index] = "o";
+          currentPlayer = player1;
+          gameSquare[index].classList.add("player-o");
+        }
       }
     }
 
