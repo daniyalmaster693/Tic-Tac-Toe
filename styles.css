@@ -18,9 +18,6 @@
   --box-shadow-value: 0 2px 20px rgba(0, 0, 0, 0.2);
   --ease-in-out: all 0.3s ease-in-out;
   --scale-in-out: scale(1.05);
-
-  /* Custom Property for changing the background image based on the current player */
-  --background-player-icon: url(Player-X-Icon.png);
 }
 
 body {
