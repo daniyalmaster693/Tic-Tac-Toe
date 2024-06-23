@@ -50,17 +50,17 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
 
-    function determineWinner(index) {
-      const winningCombinations = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6],
-      ];
+    function determineWinner() {
+      const winningCombinations = {
+        "Combo 1": [0, 1, 2],
+        "Combo 2": [3, 4, 5],
+        "Combo 3": [6, 7, 8],
+        "Combo 4": [0, 3, 6],
+        "Combo 5": [1, 4, 7],
+        "Combo 6": [2, 5, 8],
+        "Combo 7": [0, 4, 8],
+        "Combo 8": [2, 4, 6],
+      };
     }
 
     function showGameBoard() {
