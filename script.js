@@ -58,6 +58,11 @@ document.addEventListener("DOMContentLoaded", () => {
       modalOverlay.classList.add("visible");
     }
 
+    function hideModal() {
+      modal.classList.remove("visible");
+      modalOverlay.classList.remove("visible");
+    }
+
     function resetGame() {
       modal.classList.remove("visible");
       modalOverlay.classList.remove("visible");
@@ -77,6 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
       displayPlayerMarker,
       showGameBoard,
       showModal,
+      hideModal,
       resetGame,
     };
   })();
@@ -89,5 +95,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   restartGame.addEventListener("click", gameDisplayBoard.showModal);
+  modalOverlay.addEventListener("click", gameDisplayBoard.hideModal);
   playAgain.addEventListener("click", gameDisplayBoard.resetGame);
 });
