@@ -1,4 +1,5 @@
 # Tic-Tac-Toe
+
 A tic tac toe game made using HTML, CSS, and Javascript. The app uses a clean and simple UI, and has support for two players.
 
 <h2> Outcome </h2>
@@ -12,7 +13,7 @@ A tic tac toe game made using HTML, CSS, and Javascript. The app uses a clean an
 
 <h2> What have I learned </h2>
 
-<li> </li>
+<li> I've learned how to use keyframes to create unique animations </li>
 <li> </li>
 <li> </li>
 <li> </li>
