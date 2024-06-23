@@ -8,16 +8,16 @@ A tic tac toe game made using HTML, CSS, and Javascript. The app uses a clean an
 
 <h2> Links </h2>
 
-<li> Link to task:  </li>
+<li> Link to task: https://www.theodinproject.com/lessons/node-path-javascript-tic-tac-toe </li>
 <li> Link to live demo:  </li>
 
 <h2> What have I learned </h2>
 
 <li> I've learned how to use keyframes to create unique animations </li>
-<li> </li>
-<li> </li>
-<li> </li>
-<li> </li>
+<li> I've applied Closures to this project </li>
+<li> I've applied Module Patterns to this project </li>
+<li> I've applied Factory Functions to this project  </li>
+<li> I've applied IIFEs to this project </li>
 
 <h2> How did I complete this project? </h2>
 
