@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const root = document.querySelector(":root");
   const startMenu = document.querySelector(".start-menu");
   const playGame = document.querySelector(".play-game");
   const gameBoard = document.querySelector(".game-board");
@@ -38,10 +39,12 @@ document.addEventListener("DOMContentLoaded", () => {
           board[index] = "x";
           currentPlayer = player2;
           gameSquare[index].classList.add("player-x");
+          console.log(board);
         } else {
           board[index] = "o";
           currentPlayer = player1;
           gameSquare[index].classList.add("player-o");
+          console.log(board);
         }
       }
     }
@@ -65,8 +68,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
       gameSquare.forEach((square) => {
         square.classList.remove("player-x");
-      });
-      gameSquare.forEach((square) => {
         square.classList.remove("player-o");
       });
     }

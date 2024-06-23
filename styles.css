@@ -18,6 +18,9 @@
   --box-shadow-value: 0 2px 20px rgba(0, 0, 0, 0.2);
   --ease-in-out: all 0.3s ease-in-out;
   --scale-in-out: scale(1.05);
+
+  /* Custom Property for changing the background image based on the current player */
+  --background-player-icon: url(Player-X-Icon.png);
 }
 
 body {
@@ -156,11 +159,12 @@ body {
   background-color: var(--medium-purple);
   cursor: pointer;
   position: relative;
-  transition: background-color var(--ease-in-out);
+  transition: var(--ease-in-out);
 }
 
 .square:hover {
   background-color: var(--medium-purple-hover);
+  transform: var(--scale-in-out);
 }
 
 .square.player-x {
@@ -175,25 +179,6 @@ body {
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
-}
-
-.square::before {
-  background-image: url(Player-X-Icon.png);
-  background-size: 50%;
-  background-repeat: no-repeat;
-  background-position: center;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  opacity: 0;
-  content: "";
-  transition: opacity 0.3s ease-in-out;
-}
-
-.square:hover::before {
-  opacity: 1;
 }
 
 .restart-game {
