@@ -169,6 +169,7 @@ body {
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
+  animation: fadeIn forwards 0.5s ease-in;
 }
 
 .square.player-o {
@@ -176,6 +177,7 @@ body {
   background-size: 50%;
   background-repeat: no-repeat;
   background-position: center;
+  animation: fadeIn forwards 0.5s ease-in;
 }
 
 .restart-game {
