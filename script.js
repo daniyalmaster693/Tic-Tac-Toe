@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const root = document.querySelector(":root");
   const startMenu = document.querySelector(".start-menu");
   const playGame = document.querySelector(".play-game");
   const gameBoard = document.querySelector(".game-board");
