@@ -22,10 +22,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const player1 = {
       marker: "x",
+      placements: [],
     };
 
     const player2 = {
       marker: "o",
+      placements: [],
     };
 
     let currentPlayer = player1;
@@ -38,14 +40,27 @@ document.addEventListener("DOMContentLoaded", () => {
           board[index] = "x";
           currentPlayer = player2;
           gameSquare[index].classList.add("player-x");
-          console.log(board);
+          player1.placements.push(index);
         } else {
           board[index] = "o";
           currentPlayer = player1;
           gameSquare[index].classList.add("player-o");
-          console.log(board);
+          player2.placements.push(index);
         }
       }
+    }
+
+    function determineWinner(index) {
+      const winningCombinations = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6],
+      ];
     }
 
     function showGameBoard() {
@@ -80,6 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
       getBoard,
       setBoard,
       displayPlayerMarker,
+      determineWinner,
       showGameBoard,
       showModal,
       hideModal,
