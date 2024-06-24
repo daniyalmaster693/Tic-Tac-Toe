@@ -112,11 +112,22 @@ document.addEventListener("DOMContentLoaded", () => {
     function showModal() {
       modal.classList.add("visible");
       modalOverlay.classList.add("visible");
+
+      document.addEventListener("keydown", keyboardCloseModal);
     }
 
     function hideModal() {
       modal.classList.remove("visible");
       modalOverlay.classList.remove("visible");
+
+      document.removeEventListener("keydown", keyboardCloseModal);
+    }
+
+    function keyboardCloseModal() {
+      const key = event.key;
+      if (key === "Escape") {
+        hideModal();
+      }
     }
 
     function resetGame() {
