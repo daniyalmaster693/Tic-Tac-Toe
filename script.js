@@ -3,6 +3,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const playGame = document.querySelector(".play-game");
   const gameBoard = document.querySelector(".game-board");
   const gameSquare = document.querySelectorAll(".square");
+  const playerScoreX = document.querySelector(".player-x-score-value");
+  const playerScoreO = document.querySelector(".player-O-score-value");
+  const drawScore = document.querySelector(".draw-score-value");
   const restartGame = document.querySelector(".restart");
   const modal = document.querySelector(".modal");
   const modalOverlay = document.querySelector(".modal-overlay");
@@ -52,6 +55,10 @@ document.addEventListener("DOMContentLoaded", () => {
       determineWinner();
     }
 
+    let playerScore1 = 1;
+    let playerScore2 = 1;
+    let drawScore = 1;
+
     function determineWinner() {
       const winningCombinations = [
         [0, 1, 2],
@@ -71,6 +78,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (checkForWin === true) {
           results.textContent = "Player 1 Won!";
+          playerScoreX.textContent = `${playerScore1}`;
+          playerScore1++;
+          showModal();
+          return;
+        } else {
+          return;
+        }
+      });
+
+      winningCombinations.forEach((combination) => {
+        const checkForWin = combination.every((index) =>
+          player2.placements.includes(index)
+        );
+
+        if (checkForWin === true) {
+          results.textContent = "Player 2 Won!";
+          playerScoreO.textContent = `${playerScore2}`;
+          playerScore2++;
           showModal();
           return;
         } else {
@@ -101,6 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
       currentPlayer = player1;
       board = ["", "", "", "", "", "", "", "", ""];
       player1.placements = [""];
+      player2.placements = [""];
       setTimeout(() => {
         results.textContent = "No Winner!";
       }, 300);
