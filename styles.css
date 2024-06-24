@@ -180,6 +180,10 @@ body {
   animation: fadeIn forwards 0.5s ease-in;
 }
 
+.disabled {
+  pointer-events: none;
+}
+
 .restart-game {
   display: flex;
   justify-content: center;

@@ -18,6 +18,7 @@ A tic tac toe game made using HTML, CSS, and Javascript. The app uses a clean an
 <li> I've applied Module Patterns to this project </li>
 <li> I've applied Factory Functions to this project  </li>
 <li> I've applied IIFEs to this project </li>
+<li> Learned about the pointer events CSS style </li>
 
 <h2> How did I complete this project? </h2>
 

@@ -55,6 +55,10 @@ document.addEventListener("DOMContentLoaded", () => {
       determineWinner();
     }
 
+    function gameSquareClick(index) {
+      gameDisplayBoard.displayPlayerMarker(index);
+    }
+
     let playerScore1 = 1;
     let playerScore2 = 1;
     let drawScore = 1;
@@ -81,6 +85,11 @@ document.addEventListener("DOMContentLoaded", () => {
           playerScoreX.textContent = `${playerScore1}`;
           playerScore1++;
           showModal();
+
+          gameSquare.forEach((square) => {
+            square.classList.add("disabled");
+          });
+
           return;
         } else {
           return;
@@ -97,6 +106,11 @@ document.addEventListener("DOMContentLoaded", () => {
           playerScoreO.textContent = `${playerScore2}`;
           playerScore2++;
           showModal();
+
+          gameSquare.forEach((square) => {
+            square.classList.add("disabled");
+          });
+
           return;
         } else {
           return;
@@ -146,12 +160,23 @@ document.addEventListener("DOMContentLoaded", () => {
         square.classList.remove("player-x");
         square.classList.remove("player-o");
       });
+
+      gameSquare.forEach((square) => {
+        square.classList.remove("disabled");
+      });
     }
+
+    gameSquare.forEach((square, index) => {
+      square.addEventListener("click", () => {
+        gameSquareClick(index);
+      });
+    });
 
     return {
       getBoard,
       setBoard,
       displayPlayerMarker,
+      gameSquareClick,
       determineWinner,
       showGameBoard,
       showModal,
@@ -161,11 +186,6 @@ document.addEventListener("DOMContentLoaded", () => {
   })();
 
   playGame.addEventListener("click", gameDisplayBoard.showGameBoard);
-  gameSquare.forEach((square, index) => {
-    square.addEventListener("click", () => {
-      gameDisplayBoard.displayPlayerMarker(index);
-    });
-  });
 
   restartGame.addEventListener("click", gameDisplayBoard.showModal);
   modalOverlay.addEventListener("click", gameDisplayBoard.hideModal);
