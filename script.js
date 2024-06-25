@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const gameSquare = document.querySelectorAll(".square");
   const playerScoreX = document.querySelector(".player-x-score-value");
   const playerScoreO = document.querySelector(".player-O-score-value");
-  const drawScore = document.querySelector(".draw-score-value");
+  const drawScoreValue = document.querySelector(".draw-score-value");
   const restartGame = document.querySelector(".restart");
   const modal = document.querySelector(".modal");
   const modalOverlay = document.querySelector(".modal-overlay");
@@ -75,47 +75,51 @@ document.addEventListener("DOMContentLoaded", () => {
         [2, 4, 6],
       ];
 
+      let gameEnded = false;
+
       winningCombinations.forEach((combination) => {
-        const checkForWin = combination.every((index) =>
+        const player1Won = combination.every((index) =>
           player1.placements.includes(index)
         );
 
-        if (checkForWin === true) {
-          results.textContent = "Player 1 Won!";
-          playerScoreX.textContent = `${playerScore1}`;
-          playerScore1++;
-          showModal();
-
-          gameSquare.forEach((square) => {
-            square.classList.add("disabled");
-          });
-
-          return;
-        } else {
-          return;
-        }
-      });
-
-      winningCombinations.forEach((combination) => {
-        const checkForWin = combination.every((index) =>
+        const player2Won = combination.every((index) =>
           player2.placements.includes(index)
         );
 
-        if (checkForWin === true) {
-          results.textContent = "Player 2 Won!";
-          playerScoreO.textContent = `${playerScore2}`;
-          playerScore2++;
+        if (player1Won) {
+          results.textContent = "Player 1 Won!";
+          playerScoreX.textContent = `${playerScore1}`;
+          playerScore1++;
+          gameEnded = true;
           showModal();
 
           gameSquare.forEach((square) => {
             square.classList.add("disabled");
           });
+        } else if (player2Won) {
+          results.textContent = "Player 2 Won!";
+          playerScoreO.textContent = `${playerScore2}`;
+          playerScore2++;
+          gameEnded = true;
+          showModal();
 
-          return;
-        } else {
-          return;
+          gameSquare.forEach((square) => {
+            square.classList.add("disabled");
+          });
         }
       });
+
+      if (!gameEnded && !board.includes("")) {
+        results.textContent = "Draw!";
+        drawScore.textContent = `${drawScore}`;
+        drawScore++;
+        gameEnded = true;
+        showModal();
+
+        gameSquare.forEach((square) => {
+          square.classList.add("disabled");
+        });
+      }
     }
 
     function showGameBoard() {
