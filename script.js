@@ -111,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (!gameEnded && !board.includes("")) {
         results.textContent = "Draw!";
-        drawScore.textContent = `${drawScore}`;
+        drawScoreValue.textContent = `${drawScore}`;
         drawScore++;
         gameEnded = true;
         showModal();
